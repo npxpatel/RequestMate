@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "API Tester",
+    "version": "1.0",
+    "description": "Test APIs directly from your browser.",
+    "permissions": ["storage", "cookies", "activeTab", "http://*/", "https://*/"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
