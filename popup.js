@@ -29,4 +29,25 @@ document.getElementById("apiForm").addEventListener("submit", async (e) => {
     } catch (error) {
         document.getElementById("response").innerText = `Error: ${error.message}`;
     }
+
+
+    // adding request to history
+    function saveRequestHistory(request){
+        const history = JSON.parse(localStorage.getItem("requestHistory")) || [];
+        history.push({...request, timestamp : new Date().toISOString()});
+        localStorage.setItem("requestHistory" , JSON.stringify(history));
+    }
+
+    const currentRequest = {
+        url,
+        method,
+        headers,
+        body
+    }
+
+    saveRequestHistory(currentRequest);
+
+    
 });
+
+
