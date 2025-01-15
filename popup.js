@@ -47,7 +47,48 @@ document.getElementById("apiForm").addEventListener("submit", async (e) => {
 
     saveRequestHistory(currentRequest);
 
-    
 });
+
+
+// display request history
+
+function displayRequestHistory() {
+    const requestHistory = JSON.parse(localStorage.getItem("requestHistory")) || [];
+    const historyContainer = document.getElementById("historyContainer");
+
+    // Toggle visibility
+    if (historyContainer.style.display === "block") {
+        historyContainer.style.display = "none";
+        document.getElementById("showHistory").textContent = "Show History";
+        return;
+    }
+
+
+    historyContainer.innerHTML = ""; 
+
+    requestHistory.forEach((request, index) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = ` ${request.method} ${request.url}`;
+        listItem.textContent += `\n `;
+        listItem.style.cursor = "pointer";
+        listItem.onclick = () => populateForm(request);
+        historyContainer.appendChild(listItem);
+    });
+
+    historyContainer.style.display = "block";
+    document.getElementById("showHistory").textContent = "Hide History";
+}
+
+
+function populateForm(request) {
+    document.getElementById("url").value = request.url;
+    document.getElementById("method").value = request.method;
+    document.getElementById("headers").value = request.headers;
+    document.getElementById("body").value = request.body;
+}
+
+
+document.getElementById("showHistory").addEventListener("click", displayRequestHistory);
+
 
 

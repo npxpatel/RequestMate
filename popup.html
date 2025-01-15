@@ -21,9 +21,12 @@
     <textarea id="headers" placeholder='{"default headers": "been added!"}'></textarea>
     <label>Body (JSON):</label>
     <textarea id="body" placeholder='{"key": "value"}'></textarea>
-    <button type="submit">Send Request</button>
+    <button id="submit" type="submit">Send Request</button>
   </form>
-  <div id="response"></div>
+  <div id="response">Response will be displayed here</div>
+  <button id="showHistory">Show History</button>
+  <button id="clearHistory">Clear History</button>
+  <div id="historyContainer"></div>
 </body>
 <script src="popup.js"></script>
 </html>
