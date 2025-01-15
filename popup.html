@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>API Tester</h1>
+  <form id="apiForm">
+    <label>Request URL:</label>
+    <input type="text" id="url" placeholder="https://catfact.ninja/fact" required>
+    <label>Method:</label>
+    <select id="method">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+      <option value="PUT">PUT</option>
+      <option value="DELETE">DELETE</option>
+    </select>
+    <label>Headers (JSON):</label>
+    <textarea id="headers" placeholder='{"Content-Type": "application/json"}'></textarea>
+    <label>Body (JSON):</label>
+    <textarea id="body" placeholder='{"key": "value"}'></textarea>
+    <button type="submit">Send Request</button>
+  </form>
+  <div id="response"></div>
+</body>
+<script src="popup.js"></script>
+</html>
