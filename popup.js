@@ -91,4 +91,11 @@ function populateForm(request) {
 document.getElementById("showHistory").addEventListener("click", displayRequestHistory);
 
 
+// clear History
+
+function clearRequestHistory(){
+    localStorage.removeItem("requestHistory");
+}
+
+document.getElementById("clearHistory").addEventListener("click", clearRequestHistory);
 
